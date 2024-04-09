@@ -5,10 +5,11 @@ import Navbar from "../Components/Navbar/Navbar";
 const MainLayOut = () => {
     return (
         <div>
-            <Navbar></Navbar>
-            <Outlet></Outlet>
+            <div className=" w-full md:w-11/12 lg:w-10/12 mx-2 lg:mx-auto">
+                <Navbar></Navbar>
+                <Outlet></Outlet>
+            </div>
             <Footer></Footer>
-          
         </div>
     );
 };
