@@ -2,11 +2,29 @@ import { Link } from "react-router-dom";
 import { FaEyeSlash } from "react-icons/fa";
 import { IoEyeSharp } from "react-icons/io5";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
+import Context from "../../Components/Context";
 
 
 
 const LogIn = () => {
     const [show, setShow] = useState(true);
+    const { register, handleSubmit } = useForm()
+    const { signInUser, googleLogIn } = Context();
+    const HandleLogIn = (data) => {
+        const { email, password } = data;
+        signInUser(email, password)
+            .then(result => {
+                console.log(result.user)
+            })
+            .catch(error => {
+                console.error(error)
+            })
+
+    }
+    const HandleGoogle = () => {
+        googleLogIn();
+    }
     return (
         <div>
             <div className=" w-full md:w-2/3 lg:w-2/4 rounded-md shadow sm:p-8 dark:bg-gray-50 dark:text-gray-800 mx-auto">
@@ -14,18 +32,18 @@ const LogIn = () => {
                 <p className="text-sm text-center dark:text-gray-600">Dont have account?
                     <Link to="/register" className="focus:underline hover:underline text-[#e33324] hover:text-[#0f0807] font-semibold"> Register here</Link>
                 </p>
-                <form noValidate="" action="" className="space-y-8">
+                <form onSubmit={handleSubmit(HandleLogIn)} className="space-y-8">
                     <div className="space-y-4">
                         <div className="space-y-2">
                             <label htmlFor="email" className="block text-sm">Email address</label>
-                            <input type="email" name="email" id="email" placeholder="leroy@jenkins.com" className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" />
+                            <input type="email" {...register("email")} id="email" placeholder="leroy@jenkins.com" className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" />
                         </div>
                         <div className="space-y-2">
                             <div className="flex justify-between">
                                 <label htmlFor="password" className="text-sm">Password</label>
                             </div>
                             <div className="relative">
-                                <input type={show ? "password" : "text"} name="password" id="password" placeholder="*****" className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" />
+                                <input type={show ? "password" : "text"}  {...register("password")} id="password" placeholder="*****" className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" />
                                 <div onClick={() => setShow(!show)} className=" absolute right-3 top-3 text-xl">
                                     {
                                         show ? <FaEyeSlash /> : <IoEyeSharp />
@@ -35,7 +53,7 @@ const LogIn = () => {
                             <a rel="noopener noreferrer" href="#" className="text-xs hover:underline dark:text-gray-600">Forgot password?</a>
                         </div>
                     </div>
-                    <button type="button" className="w-full px-8 py-3 font-semibold rounded-md btn btn-secondary bg-[#e33324]">Sign in</button>
+                    <button type="submit" className="w-full px-8 py-3 font-semibold rounded-md btn btn-secondary bg-[#e33324]">Sign in</button>
                 </form>
                 <div className="flex items-center w-full my-4">
                     <hr className="w-full dark:text-gray-600" />
@@ -43,7 +61,7 @@ const LogIn = () => {
                     <hr className="w-full dark:text-gray-600" />
                 </div>
                 <div className="flex flex-col lg:flex-row justify-between gap-4 text-white">
-                    <button aria-label="Login with Google" type="button" className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 bg-[#3b5998] hover:bg-white hover:text-[#3b5998] dark:border-gray-600 focus:dark:ring-violet-600">
+                    <button onClick={HandleGoogle} aria-label="Login with Google" type="button" className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 bg-[#3b5998] hover:bg-white hover:text-[#3b5998] dark:border-gray-600 focus:dark:ring-violet-600">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" className="w-5 h-5 fill-current">
                             <path d="M16.318 13.714v5.484h9.078c-0.37 2.354-2.745 6.901-9.078 6.901-5.458 0-9.917-4.521-9.917-10.099s4.458-10.099 9.917-10.099c3.109 0 5.193 1.318 6.38 2.464l4.339-4.182c-2.786-2.599-6.396-4.182-10.719-4.182-8.844 0-16 7.151-16 16s7.156 16 16 16c9.234 0 15.365-6.49 15.365-15.635 0-1.052-0.115-1.854-0.255-2.651z"></path>
                         </svg>
