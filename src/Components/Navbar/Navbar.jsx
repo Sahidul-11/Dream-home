@@ -1,16 +1,24 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Context from "../Context";
 
 const Navbar = () => {
-    const { user,signOutUser } = Context();
+    const { user,signOutUser, loading } = Context();
     const navLinks = <>
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/register">Register</NavLink></li>
     </>
-    console.log(user)
+   const HandleLogOut =(e)=>{
+    e.preventDefault();
+    signOutUser()
+    .then()
+    .catch()
+   }
+   if(loading){
+    return <div className="w-16 h-16 mt-10 border-4 border-dashed rounded-full animate-spin border-violet-600 mx-auto"></div>
+   }   
     return (
         <div>
-            <div className="navbar bg-base-100 static shadow-2xl mb-10 rounded-md">
+            <div className="navbar bg-base-100 shadow-2xl mb-10 rounded-md w-full md:w-11/12 lg:w-10/12 mx-auto ">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -34,17 +42,20 @@ const Navbar = () => {
                 <div className="navbar-end">
                    {
                     user? <>
-                     <div className="tooltip tooltip-bottom" data-tip="hello">
+                     <div className="tooltip tooltip-bottom" data-tip={user?.displayName? user.displayName : "Unknown user name"}>
                         <NavLink className="">
                             <div className="avatar online placeholder">
                                 <div className="bg-neutral text-neutral-content rounded-full w-12">
-                                    <span className="text-xl">AI</span>
+                                {
+                                    user?.photoURL? <img src={user.photoURL} alt="" />: <span className="text-xl">AI</span>
+                                }
+                                   
                                 </div>
                             </div>
                         </NavLink>
                     </div>
-                     <button onClick={()=> signOutUser()} type="button" className="btn bg-[#e33324] text-white font-semibold ml-3 hover:text-[#e33324] hover:bg-black ">Log out</button>
-                    </> :  <NavLink to="/login" className="btn btn-ghost bg-[#e33324] text-white font-semibold">Log In</NavLink>
+                     <NavLink to="login"><button onClick={HandleLogOut} type="submit" className="btn bg-[#e33324] text-white font-semibold ml-3 hover:text-[#e33324] hover:bg-black ">Log out</button></NavLink>
+                    </> :  <NavLink to="/login" className="btn btn-ghost bg-[#e33324] text-white font-semibold hover:text-[#e33324] hover:bg-black ">Log In</NavLink>
                               
                    }
                 </div>

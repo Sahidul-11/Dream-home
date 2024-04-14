@@ -1,0 +1,146 @@
+[
+  {
+    "image_url": "https://i.ibb.co/px0zY07/single-home.jpg",
+    "estate_title": "Single-family Home",
+    "id": 1,
+    "segment_name": "Single-family homes",
+    "description": "A charming single-family home with three bedrooms and two bathrooms.",
+    "price": "$300,000",
+    "status": "sale",
+    "area": "2000 sqft",
+    "location": "Cityville, XYZ",
+    "facilities": [
+      "living room",
+      "backyard",
+      "garage"
+    ]
+  },
+  {
+    "image_url": "https://i.ibb.co/qgV5Y6K/apartment.jpg",
+    "estate_title": "Modern Townhouse",
+    "id": 2,
+    "segment_name": "Townhouses",
+    "description": "A sleek and contemporary townhouse with spacious interiors and rooftop terrace.",
+    "price": "$500,000",
+    "status": "sale",
+    "area": "1800 sqft",
+    "location": "Urban Heights, ABC",
+    "facilities": [
+      "living room",
+      "kitchen",
+      "rooftop terrace"
+    ]
+  },
+  {
+    "image_url": " https://i.ibb.co/2vQGNPv/apartments.jpg",
+    "estate_title": "Luxurious Apartment",
+    "id": 3,
+    "segment_name": "Apartments",
+    "description": "An elegant apartment in a high-rise building with stunning city views.",
+    "price": "$2,500/month",
+    "status": "rent",
+    "area": "1500 sqft",
+    "location": "Downtown District, PQR",
+    "facilities": [
+      "living room",
+      "swimming pool",
+      "gym"
+    ]
+  },
+  {
+    "image_url": " https://i.ibb.co/QCryw1k/student-house.jpg",
+    "estate_title": "Student Housing Complex",
+    "id": 4,
+    "segment_name": "Student housing",
+    "description": "A purpose-built student housing complex with modern amenities and close proximity to universities.",
+    "price": "$800/month",
+    "status": "rent",
+    "area": "Varies",
+    "location": "University District, LMN",
+    "facilities": [
+      "study area",
+      "common room",
+      "laundry facilities"
+    ]
+  },
+  {
+    "image_url": "https://i.ibb.co/jDNdvB5/Seniour.jpg ",
+    "estate_title": "Senior Living Community",
+    "id": 5,
+    "segment_name": "Senior living communities",
+    "description": "A vibrant senior living community offering various activities and healthcare services.",
+    "price": "$3,000/month",
+    "status": "rent",
+    "area": "Varies",
+    "location": "Retirement Village, DEF",
+    "facilities": [
+      "recreation center",
+      "medical assistance",
+      "landscaped gardens"
+    ]
+  },
+  {
+    "image_url": "    https://i.ibb.co/VvmhC1T/vacation.jpg",
+    "estate_title": "Seaside Vacation Rental",
+    "id": 6,
+    "segment_name": "Vacation rentals",
+    "description": "A cozy beachfront cottage perfect for a relaxing getaway with family or friends.",
+    "price": "$200/night",
+    "status": "rent",
+    "area": "1200 sqft",
+    "location": "Beachfront, GHI",
+    "facilities": [
+      "ocean view",
+      "patio",
+      "bbq grill"
+    ]
+  },
+  {
+    "image_url": "https://i.ibb.co/px0zY07/single-home.jpg",
+    "estate_title": "Family-friendly Apartment Complex",
+    "id": 7,
+    "segment_name": "Apartments",
+    "description": "A spacious apartment complex with playgrounds and recreational areas for families.",
+    "price": "$1,200/month",
+    "status": "rent",
+    "area": "1800 sqft",
+    "location": "Suburbia, JKL",
+    "facilities": [
+      "playground",
+      "fitness center",
+      "community room"
+    ]
+  },
+  {
+    "image_url": "https://i.ibb.co/zxm3b1W/retried-house.jpg",
+    "estate_title": "Retirement Villa",
+    "id": 8,
+    "segment_name": "Senior living communities",
+    "description": "A luxurious villa designed for retirees, featuring personalized care services and serene surroundings.",
+    "price": "$5,000/month",
+    "status": "rent",
+    "area": "2500 sqft",
+    "location": "Countryside Retreat, MNO",
+    "facilities": [
+      "personal care services",
+      "landscaped gardens",
+      "library"
+    ]
+  },
+  {
+    "image_url": "https://i.ibb.co/0GFL6J0/urban-area.jpg",
+    "estate_title": "Urban Loft",
+    "id": 9,
+    "segment_name": "Apartments",
+    "description": "A trendy loft apartment in the heart of the city, boasting industrial-chic design and city views.",
+    "price": "$400,000",
+    "status": "sale",
+    "area": "1500 sqft",
+    "location": "Downtown District, STU",
+    "facilities": [
+      "open floor plan",
+      "exposed brick",
+      "Roof top access"
+    ]
+  }
+]

@@ -6,7 +6,7 @@ const Banner = () => {
             <div className="carousel w-full">
                 <div id="slide1" className="carousel-item relative w-full">
                     <div className='w-full'>
-                        <div className="hero w-full  rounded-2xl" style={{ backgroundImage: 'url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg)' }}>
+                        <div className="hero w-full h-[600px]  rounded-2xl" style={{ backgroundImage: 'url(https://i.ibb.co/px0zY07/single-home.jpg)'}}>
                             <div className="hero-overlay bg-opacity-40  rounded-2xl"></div>
                             <div className="hero-content text-center text-neutral-content">
                                 <div className="max-w-md">
@@ -48,4 +48,7 @@ const Banner = () => {
     );
 };
 
+// https://i.ibb.co/QCryw1k/student-house.jpg
+// https://i.ibb.co/VvmhC1T/vacation.jpg
+// https://i.ibb.co/0GFL6J0/urban-area.jpg
 export default Banner;
