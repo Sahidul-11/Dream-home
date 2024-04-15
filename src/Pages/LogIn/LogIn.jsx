@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaEyeSlash } from "react-icons/fa";
 import { IoEyeSharp } from "react-icons/io5";
 import { useState } from "react";
@@ -11,11 +11,16 @@ const LogIn = () => {
     const [show, setShow] = useState(true);
     const { register, handleSubmit } = useForm()
     const { signInUser, googleLogIn } = Context();
+    const location = useLocation()
+    const navigate = useNavigate()
     const HandleLogIn = (data) => {
         const { email, password } = data;
         signInUser(email, password)
             .then(result => {
-                console.log(result.user)
+               if (result.user){
+             navigate(location?.state || "/")
+              
+               }
             })
             .catch(error => {
                 console.error(error)
@@ -25,6 +30,7 @@ const LogIn = () => {
     const HandleGoogle = () => {
         googleLogIn();
     }
+    console.log(location)
     return (
         <div>
             <div className=" w-full md:w-2/3 lg:w-2/4 rounded-md shadow sm:p-8 dark:bg-gray-50 dark:text-gray-800 mx-auto">

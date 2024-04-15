@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaEyeSlash } from "react-icons/fa";
 import { IoEyeSharp } from "react-icons/io5"
 import Context from '../../Components/Context';
@@ -10,11 +10,15 @@ const Register = () => {
     const { register, handleSubmit } = useForm()
     const [show, setShow] = useState(true);
     const {createUser} = Context()
+    const navigate = useNavigate(); 
     const HandleRegister = (data)=>{
         const{email, password} = data;
         createUser(email, password)
         .then(result =>{
-            console.log(result.user)
+           if (result.user){
+            navigate("/")
+
+           }
         })
         .catch(error=>{
             console.error(error)

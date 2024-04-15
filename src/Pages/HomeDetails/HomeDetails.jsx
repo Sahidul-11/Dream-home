@@ -60,7 +60,7 @@ const HomeDetails = () => {
                       <Link to="/">  <button className="btn btn-secondary">Back to Home</button></Link>
                         <button className="btn btn-primary">Buy Now</button>
                     </div>
-                    <div className=" text-white font-bold w-24 absolute top-1/2 right-52 z-20">
+                    <div className=" text-white font-bold w-24 absolute top-1/2 right-3 lg:right-52 z-20">
                         <p className="bg-[#FFA920]  mb-4 py-1 px-1 rounded-r-full" >Featured</p>
                         <p className="bg-[#6E55FF]  py-1 px-3 rounded-r-full " >For {status}</p>
 

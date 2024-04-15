@@ -11,28 +11,29 @@ import Home from './Pages/Home/Home';
 import LogIn from './Pages/LogIn/LogIn';
 import Register from './Pages/Register/Register';
 import HomeDetails from './Pages/HomeDetails/HomeDetails';
+import Protect from './Components/privateRoutes/Protect';
 const router = createBrowserRouter([
   {
     path: "/",
-    element:<MainLayOut></MainLayOut>,
-    children :[
+    element: <MainLayOut></MainLayOut>,
+    children: [
       {
-        path :"/",
-        element : <Home></Home>,
-        loader : ()=>fetch ("./Fake.json"),
+        path: "/",
+        element: <Home></Home>,
+        loader: () => fetch("./Fake.json"),
       },
       {
-        path :"/:id",
-        element : <HomeDetails></HomeDetails>,
-        loader : ()=>fetch ("./Fake.json"),
+        path: "/:id",
+        element: <Protect> <HomeDetails></HomeDetails></Protect>,
+        loader: () => fetch("./Fake.json"),
       },
       {
-        path :"/login",
-        element :<LogIn></LogIn>,
+        path: "/login",
+        element: <LogIn></LogIn>,
       },
       {
-        path :"/register",
-        element : <Register></Register>
+        path: "/register",
+        element: <Register></Register>
       },
     ]
   },
