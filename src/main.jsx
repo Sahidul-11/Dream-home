@@ -10,6 +10,7 @@ import MainLayOut from './LayOut/MainLayOut';
 import Home from './Pages/Home/Home';
 import LogIn from './Pages/LogIn/LogIn';
 import Register from './Pages/Register/Register';
+import HomeDetails from './Pages/HomeDetails/HomeDetails';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -18,6 +19,11 @@ const router = createBrowserRouter([
       {
         path :"/",
         element : <Home></Home>,
+        loader : ()=>fetch ("./Fake.json"),
+      },
+      {
+        path :"/:id",
+        element : <HomeDetails></HomeDetails>,
         loader : ()=>fetch ("./Fake.json"),
       },
       {

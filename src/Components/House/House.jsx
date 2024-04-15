@@ -1,3 +1,5 @@
+import { FaLocationDot } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const House = ({card}) => {
     const{image_url,
@@ -16,9 +18,13 @@ const House = ({card}) => {
                 <figure><img src= {image_url} alt={estate_title} /></figure>
                 <div className="card-body">
                     <h2 className="text-3xl font-extrabold">{estate_title}</h2>
-                    <p>If a dog chews shoes whose shoes does he choose?</p>
+                    <p className="text-[#6c6a6f] flex gap-3 mt-2 "><FaLocationDot className="text-xl text-[#FFA920]" />{location}</p>
+                       <div className="flex">
+                       <p className="text-xl font-extrabold text-[#FFA920]">{price}</p>
+                       <p><span className="text-[#6E55FF] font-semibold"> Area : {area}</span></p>
+                       </div>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Buy Now</button>
+                      <Link to={`/${id}`}><button className="btn btn-outline font-bold">View Property</button></Link>
                     </div>
                 </div>
                 <div className=" text-white font-bold w-24 absolute top-2 -left-1 z-20">
@@ -29,7 +35,7 @@ const House = ({card}) => {
             </div>
 
         </>
-    );
+    )
 };
 
 export default House;
