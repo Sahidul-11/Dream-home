@@ -9,7 +9,7 @@ const Navbar = () => {
         {
             user && <>
             <li><NavLink to="/profile">Update Profile</NavLink></li>
-            <li><NavLink to="/aboutUs">About us</NavLink></li>
+            <li><NavLink to="/message">Message us</NavLink></li>
             </>
         }
     </>

@@ -13,6 +13,8 @@ import Register from './Pages/Register/Register';
 import HomeDetails from './Pages/HomeDetails/HomeDetails';
 import Protect from './Components/privateRoutes/Protect';
 import Error from './Pages/Error/Error';
+import Profile from './Pages/Profile/Profile';
+import Message from './Pages/Profile/Message/Message';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -38,12 +40,12 @@ const router = createBrowserRouter([
         element: <Register></Register>
       },
       {
-        path: "/aboutUs",
-        element: <Register></Register>
+        path: "/message",
+        element:<Protect><Message></Message></Protect>
       },
       {
         path: "/profile",
-        element: <Register></Register>
+        element:<Protect><Profile></Profile></Protect>
       },
     ]
   },
