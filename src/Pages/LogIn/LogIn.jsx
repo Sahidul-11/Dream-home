@@ -6,6 +6,8 @@ import { useForm } from "react-hook-form";
 import Context from "../../Components/Context";
 import { ToastContainer, toast } from 'react-toastify';
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
+
 
 
 const LogIn = () => {
@@ -63,6 +65,11 @@ const LogIn = () => {
     }
     return (
         <div>
+              <Helmet>
+                <meta charSet="utf-8" />
+                <title>Log in</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
             <div className=" w-full md:w-2/3 lg:w-2/4 rounded-md shadow sm:p-8 dark:bg-gray-50 dark:text-gray-800 mx-auto">
                 <h2 className="mb-3 text-3xl font-semibold text-center">Login to your account</h2>
                 <p className="text-sm text-center dark:text-gray-600">Dont have account?

@@ -1,5 +1,7 @@
 import { FaLocationDot } from "react-icons/fa6";
 import { Link, useLoaderData, useParams } from "react-router-dom";
+import { Helmet } from "react-helmet";
+
 
 const HomeDetails = () => {
     const cards = useLoaderData()
@@ -17,6 +19,11 @@ const HomeDetails = () => {
     const [a, b, c] = facilities;
     return (
         <div>
+              <Helmet>
+                <meta charSet="utf-8" />
+                <title>Details</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
             <div className="card w-full bg-base-100 shadow-2xl relative">
                 <figure className="px-2 pt-10 h-[500px] rounded-xl mt-5">
                     <img src={image_url} alt="" className="rounded-2xl" />

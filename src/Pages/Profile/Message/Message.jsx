@@ -1,7 +1,13 @@
+import { Helmet } from "react-helmet";
 
 const Message = () => {
     return (
         <div>
+              <Helmet>
+                <meta charSet="utf-8" />
+                <title>Message</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
             <section className = "dark:bg-gray-900 bg-white">
                 <div className ="container px-6 py-12 mx-auto">
                     <div>

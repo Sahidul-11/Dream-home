@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import Context from "../../Components/Context";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
+
 
 const Profile = () => {
     const { user, updateUser ,loading, setLoading } = Context()
@@ -39,6 +41,11 @@ const Profile = () => {
     }
     return (
         <div>
+              <Helmet>
+                <meta charSet="utf-8" />
+                <title>Profile</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
             <div className="flex flex-col justify-center p-6 shadow-md rounded-xl sm:px-12 text-gray-50 bg-gray-800 w-full lg:w-1/2 mx-auto">
                 <img src={user?.photoURL} alt="" className="w-32 h-32 mx-auto rounded-full dark:bg-gray-500 aspect-square" />
                 <div className="space-y-4 text-center divide-y dark:divide-gray-300">

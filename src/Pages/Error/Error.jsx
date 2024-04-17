@@ -1,8 +1,15 @@
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
+
 
 const Error = () => {
     return (
         <div>
+              <Helmet>
+                <meta charSet="utf-8" />
+                <title>Error</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
             <div className=" w-full lg:w-1/3 mx-auto">
                 <section className="bg-white dark:bg-gray-900 mx-auto">
                     <div className="container flex items-center min-h-screen px-6 py-12 mx-auto">
