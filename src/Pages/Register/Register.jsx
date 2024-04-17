@@ -5,7 +5,7 @@ import { FaEyeSlash } from "react-icons/fa";
 import { IoEyeSharp } from "react-icons/io5"
 import Context from '../../Components/Context';
 import { useForm } from 'react-hook-form';
-
+import Swal from 'sweetalert2';
 const Register = () => {
     const { register, handleSubmit } = useForm()
     const [show, setShow] = useState(true);
@@ -21,11 +21,22 @@ const Register = () => {
         .then(result =>{
             updateUser(name , url)
            if (result.user){
+            Swal.fire({
+                position: "top",
+                icon: "success",
+                title: "Registered successfully",
+                showConfirmButton: false,
+                timer: 2000
+              });
             navigate("/")
            }
         })
         .catch(error=>{
-            console.error(error)
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text:"Email Already exist",
+              });
             setLoading(false)
         })
     }
@@ -44,7 +55,7 @@ const Register = () => {
                             </div>
                             <div className="space-y-2">
                                 <label htmlFor="email" className="block text-sm">Email address</label>
-                                <input type="email"{...register("email") } placeholder="leroy@jenkins.com" className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" />
+                                <input required type="email"{...register("email") } placeholder="leroy@jenkins.com" className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" />
                             </div>
                             <div className="space-y-2">
                                 <label htmlFor="email" className="block text-sm">Photo URL</label>
@@ -55,7 +66,7 @@ const Register = () => {
                                     <label htmlFor="password" className="text-sm">Password</label>
                                 </div>
                                 <div className="relative">
-                                    <input type={show ? "password" : "text"} {...register("password") } id="password" placeholder="*****" className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" />
+                                    <input  required type={show ? "password" : "text"} {...register("password", { pattern: /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/ })} id="password" placeholder="*****" className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" />
                                     <div onClick={() => setShow(!show)} className=" absolute right-3 top-3 text-xl">
                                         {
                                             show ? <FaEyeSlash /> : <IoEyeSharp />

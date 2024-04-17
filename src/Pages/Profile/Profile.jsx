@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Context from "../../Components/Context";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Profile = () => {
     const { user, updateUser ,loading, setLoading } = Context()
@@ -16,7 +17,15 @@ const Profile = () => {
     }
     console.log(name , photoURL)
     const handleUpdate = () => {
+        Swal.fire({
+            position: "top",
+            icon: "success",
+            title: "Your work has been saved",
+            showConfirmButton: false,
+            timer: 1500
+          });
         updateUser(name, photoURL)
+        
             .then(res=>{
                 if(res.user){
                      navigate("/")

@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import Context from "../Context";
-
+import Swal from "sweetalert2";
+Swal
 const Navbar = () => {
     const { user,signOutUser, loading } = Context();
     const navLinks = <>
@@ -16,8 +17,13 @@ const Navbar = () => {
    const HandleLogOut =(e)=>{
     e.preventDefault();
     signOutUser()
-    .then()
-    .catch()
+    Swal.fire({
+        position: "top",
+        icon: "success",
+        title: "You logged Out successfully",
+        showConfirmButton: false,
+        timer: 2000
+      })
    }
    if(loading){
     return <div className="w-16 h-16 mt-10 border-4 border-dashed rounded-full animate-spin border-violet-600 mx-auto"></div>
@@ -36,7 +42,7 @@ const Navbar = () => {
                             }
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl">daisyUI</a>
+                    <a className="btn btn-ghost text-2xl">Dream Home</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 flex items-center">

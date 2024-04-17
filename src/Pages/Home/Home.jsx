@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import Banner from "../../Components/Banner/Banner";
 import House from "../../Components/House/House";
+import { ToastContainer } from "react-toastify";
 
 const Home = () => {
   const cards = useLoaderData();
@@ -18,6 +19,7 @@ const Home = () => {
           )
         }
       </div>
+      < ToastContainer className="mt-96"/>
     </div>
   );
 };

@@ -1,8 +1,8 @@
 import { createContext, useEffect, useState } from "react";
 import auth from "../Firebase/Firebase.config";
 import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
-
 export const AuthContext = createContext(null);
+import { toast } from 'react-toastify';
 const AuthProviders = ({children}) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true) 
@@ -38,7 +38,6 @@ const AuthProviders = ({children}) => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) =>{
             if (currentUser) {
                setUser(currentUser);
-               console.log("sal user", currentUser);
                setLoading(false);
                console.log(currentUser.displayName)
             }

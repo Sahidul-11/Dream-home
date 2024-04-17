@@ -4,7 +4,8 @@ import { IoEyeSharp } from "react-icons/io5";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import Context from "../../Components/Context";
-
+import { ToastContainer, toast } from 'react-toastify';
+import Swal from "sweetalert2";
 
 
 const LogIn = () => {
@@ -17,27 +18,49 @@ const LogIn = () => {
         const { email, password } = data;
         signInUser(email, password)
             .then(result => {
+                Swal.fire({
+                    position: "top",
+                    icon: "success",
+                    title: "You logged in successfully",
+                    showConfirmButton: false,
+                    timer: 2000
+                  });
+                console.log("ki j kor")
                if (result.user){
+                toast.error(result.user)
              navigate(location?.state || "/")
               
                }
             })
             .catch(error => {
-                console.error(error)
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Email Or password is incorrect",
+                  });
                 setLoading(false)
             })
 
     }
     const HandleGoogle = () => {
+     
         googleLogIn()
         .then(result => {
+            Swal.fire({
+                position: "top",
+                icon: "success",
+                title: "You logged in successfully",
+                showConfirmButton: false,
+                timer: 2000
+              });
+
             if (result.user){
           navigate(location?.state || "/")
+
            
             }
          })
     }
-    console.log(location)
     return (
         <div>
             <div className=" w-full md:w-2/3 lg:w-2/4 rounded-md shadow sm:p-8 dark:bg-gray-50 dark:text-gray-800 mx-auto">
@@ -45,6 +68,7 @@ const LogIn = () => {
                 <p className="text-sm text-center dark:text-gray-600">Dont have account?
                     <Link to="/register" className="focus:underline hover:underline text-[#e33324] hover:text-[#0f0807] font-semibold"> Register here</Link>
                 </p>
+                < ToastContainer className="mt-96"/>
                 <form onSubmit={handleSubmit(HandleLogIn)} className="space-y-8">
                     <div className="space-y-4">
                         <div className="space-y-2">
@@ -93,6 +117,7 @@ const LogIn = () => {
                         <p>Twitter</p>
                     </button>
                 </div>
+                < ToastContainer className="mt-96"/>
             </div>
         </div>
     );
