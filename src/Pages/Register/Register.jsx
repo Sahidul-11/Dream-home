@@ -9,19 +9,24 @@ import { useForm } from 'react-hook-form';
 const Register = () => {
     const { register, handleSubmit } = useForm()
     const [show, setShow] = useState(true);
-    const {createUser} = Context()
+    const {createUser,
+         setLoading,
+         updateUser
+        
+        } = Context()
     const navigate = useNavigate(); 
     const HandleRegister = (data)=>{
-        const{email, password} = data;
+        const{email, password , name , url} = data;
         createUser(email, password)
         .then(result =>{
+            updateUser(name , url)
            if (result.user){
             navigate("/")
-
            }
         })
         .catch(error=>{
             console.error(error)
+            setLoading(false)
         })
     }
     return (
@@ -43,7 +48,7 @@ const Register = () => {
                             </div>
                             <div className="space-y-2">
                                 <label htmlFor="email" className="block text-sm">Photo URL</label>
-                                <input type='file' name="url" placeholder="Photo URL" className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" />
+                                <input type='text' {...register("url") } placeholder="Photo URL" className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" />
                             </div>
                             <div className="space-y-2">
                                 <div className="flex justify-between">

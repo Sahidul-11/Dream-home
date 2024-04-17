@@ -12,10 +12,12 @@ import LogIn from './Pages/LogIn/LogIn';
 import Register from './Pages/Register/Register';
 import HomeDetails from './Pages/HomeDetails/HomeDetails';
 import Protect from './Components/privateRoutes/Protect';
+import Error from './Pages/Error/Error';
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayOut></MainLayOut>,
+    errorElement :<Error></Error>,
     children: [
       {
         path: "/",
@@ -33,6 +35,14 @@ const router = createBrowserRouter([
       },
       {
         path: "/register",
+        element: <Register></Register>
+      },
+      {
+        path: "/aboutUs",
+        element: <Register></Register>
+      },
+      {
+        path: "/profile",
         element: <Register></Register>
       },
     ]

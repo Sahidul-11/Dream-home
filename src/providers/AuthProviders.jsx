@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import auth from "../Firebase/Firebase.config";
-import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 
 export const AuthContext = createContext(null);
 const AuthProviders = ({children}) => {
@@ -10,6 +10,12 @@ const AuthProviders = ({children}) => {
     const createUser = (email , password ) =>{
         setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
+    }
+    // updateUser
+    const updateUser =(name , url)=>{
+       return updateProfile(auth.currentUser, {
+            displayName: name, photoURL: url
+          })     
     }
     // signInUser
     const signInUser = (email, password)=>{
@@ -51,7 +57,10 @@ const AuthProviders = ({children}) => {
         signInUser,
         signOutUser,
         googleLogIn,
-        loading
+        loading,
+        setLoading,
+        updateUser
+        
     }
     return (
       

@@ -6,6 +6,12 @@ const Navbar = () => {
     const navLinks = <>
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/register">Register</NavLink></li>
+        {
+            user && <>
+            <li><NavLink to="/profile">Update Profile</NavLink></li>
+            <li><NavLink to="/aboutUs">About us</NavLink></li>
+            </>
+        }
     </>
    const HandleLogOut =(e)=>{
     e.preventDefault();

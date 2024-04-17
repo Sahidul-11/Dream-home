@@ -10,7 +10,7 @@ import Context from "../../Components/Context";
 const LogIn = () => {
     const [show, setShow] = useState(true);
     const { register, handleSubmit } = useForm()
-    const { signInUser, googleLogIn } = Context();
+    const { signInUser, googleLogIn, setLoading } = Context();
     const location = useLocation()
     const navigate = useNavigate()
     const HandleLogIn = (data) => {
@@ -24,11 +24,18 @@ const LogIn = () => {
             })
             .catch(error => {
                 console.error(error)
+                setLoading(false)
             })
 
     }
     const HandleGoogle = () => {
-        googleLogIn();
+        googleLogIn()
+        .then(result => {
+            if (result.user){
+          navigate(location?.state || "/")
+           
+            }
+         })
     }
     console.log(location)
     return (
