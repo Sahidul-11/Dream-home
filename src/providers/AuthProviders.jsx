@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import auth from "../Firebase/Firebase.config";
-import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import { GoogleAuthProvider,GithubAuthProvider , createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 export const AuthContext = createContext(null);
 import { toast } from 'react-toastify';
 const AuthProviders = ({children}) => {
@@ -34,6 +34,13 @@ const AuthProviders = ({children}) => {
         setLoading(true);
          return signInWithPopup(auth, googleProvider);
     }
+    //git hub provider
+    const gitProvider = new GithubAuthProvider();
+    const gitHubLogIng= ()=>{
+        setLoading(true);
+        return signInWithPopup(auth, gitProvider);
+
+    }
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth, (currentUser) =>{
             if (currentUser) {
@@ -59,7 +66,8 @@ const AuthProviders = ({children}) => {
         googleLogIn,
         loading,
         setLoading,
-        updateUser
+        updateUser,
+        gitHubLogIng
         
     }
     return (

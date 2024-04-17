@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import Context from "../Context";
 import Swal from "sweetalert2";
-Swal
+import 'animate.css';
 const Navbar = () => {
     const { user,signOutUser, loading } = Context();
     const navLinks = <>
@@ -42,7 +42,7 @@ const Navbar = () => {
                             }
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-2xl">Dream Home</a>
+                    <a className="btn btn-ghost text-2xl text-amber-600 font-extrabold animate-animated  animate__heartBeat animate__infinite">Dream Home</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 flex items-center">

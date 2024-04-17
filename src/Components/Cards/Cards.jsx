@@ -1,7 +1,9 @@
-
+import Aos from 'aos';
+import 'aos/dist/aos.css'
+ 
 const Cards = () => {
     return (
-        <div>
+        <div >
             <div className="card card-compact w-full bg-base-100 shadow-xl">
                 <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
                 <div className="card-body">
